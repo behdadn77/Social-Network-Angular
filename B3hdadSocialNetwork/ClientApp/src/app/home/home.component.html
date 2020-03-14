@@ -1,0 +1,14 @@
+<app-update-status></app-update-status>
+<div class="search-results"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="50"
+     (scrolled)="onScrollDown()"
+     (scrolledUp)="onScrollUp()">
+
+  <app-post *ngFor="let item of postList" [title]="item.title" [body]="item.body"
+            [likeCount]="item.likeCount" [commentCount]="item.commentCount" [isPostOwner]="item.isPostOwner"
+            [imageBase64]="item.imageBase64" name="{{ item.userFirstName }} {{ item.userLastName }}" [id]="item.id">
+    <div class="loader"></div>
+  </app-post>
+</div>

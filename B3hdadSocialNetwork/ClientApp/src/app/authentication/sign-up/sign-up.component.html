@@ -1,0 +1,67 @@
+<div class="container offset-md-1 col-md-6" style="padding-top:40px;">
+  <h1>Sign up</h1>
+  <!--<form [formGroup]="signUpFormValidators" #formSignUp action="/Api/Authentication/Signup"
+        method="post" enctype="multipart/form-data">-->
+  <div [formGroup]="signUpFormValidators">
+    <div class="form-group">
+      <input class="form-control" [(ngModel)]="credentials.email" formControlName="email" name="email" placeholder="Email" />
+      <div *ngIf="signUpFormValidators.controls['email'].invalid
+              && (signUpFormValidators.controls['email'].dirty
+             || signUpFormValidators.controls['email'].touched)"
+           class="alert alert-danger">
+        <span *ngIf="signUpFormValidators.controls['email'].errors.pattern">
+          Email Address is not valid.
+        </span>
+        <span *ngIf="signUpFormValidators.controls['email'].errors.required">
+          Email Address is Required.
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" [(ngModel)]="credentials.name" formControlName="name" name="name" placeholder="Name" />
+      <div *ngIf="signUpFormValidators.controls['name'].invalid
+              && (signUpFormValidators.controls['name'].dirty
+             || signUpFormValidators.controls['name'].touched)"
+           class="alert alert-danger">
+        <span *ngIf="signUpFormValidators.controls['name'].errors.required">
+          Name is Required.
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" [(ngModel)]="credentials.family" formControlName="family" name="family" placeholder="Family" />
+      <div *ngIf="signUpFormValidators.controls['family'].invalid
+              && (signUpFormValidators.controls['family'].dirty
+             || signUpFormValidators.controls['family'].touched)"
+           class="alert alert-danger">
+        <span *ngIf="signUpFormValidators.controls['family'].errors.required">
+          Family is Required.
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <input  type="password" [(ngModel)]="credentials.password" class="form-control" formControlName="password" name="password" placeholder="password" />
+      <div *ngIf="signUpFormValidators.controls['password'].invalid
+              && (signUpFormValidators.controls['password'].dirty
+             || signUpFormValidators.controls['password'].touched)"
+           class="alert alert-danger">
+        <span *ngIf="signUpFormValidators.controls['password'].errors.pattern">
+          Password requires at least a lowercase letter,
+          an uppercase letter, a digit,
+          and a special characters.
+          There must be a minimum of 9 characters total,
+          and no white space characters are allowed.
+        </span>
+        <span *ngIf="signUpFormValidators.controls['password'].errors.required">
+          Password is Required.
+        </span>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="signUp($event)" [disabled]="!signUpFormValidators.valid">Sign up</button>
+  </div>
+  <hr />
+  <a [routerLink]='["/sign-in"]'>Already have an account? Sign in</a>
+  <hr/>
+  <a>Sign in with google</a>
+
+</div>

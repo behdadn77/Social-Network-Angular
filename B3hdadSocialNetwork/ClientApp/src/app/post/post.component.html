@@ -1,0 +1,17 @@
+<!--<button class="btn btn-outline-success" style="margin-right:10px;">👍 {{likeCount}}</button>
+<button class="btn btn-outline-success">💬 {{commentCount}}</button>-->
+<div class="card border-primary mb-3 offset-md-2" style="max-width: 46rem;">
+  <div class="card-header">{{name}}</div>
+  <div class="card-body">
+    <h4 class="card-title">{{title}}</h4>
+    <p class="card-text">{{body}}</p>
+  </div>
+  <div class="container" style="padding:10px;">
+    <img *ngIf="hasImg" class="post-image" src="data:image/gif;base64,{{imageBase64}}" alt="{{title}}" />
+    <div *ngIf="isPostOwner">
+      <button class="btn btn-danger" style="margin-right:10px;" (click)="delete()">Delete</button>
+      <button class="btn btn-warning">Edit</button>
+    </div>
+  </div>
+</div>
+

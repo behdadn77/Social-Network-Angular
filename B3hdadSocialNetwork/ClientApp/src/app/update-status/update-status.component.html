@@ -1,0 +1,36 @@
+<div *ngIf="visible | async" class="jumbotron offset-md-2 update-status" style="max-width: 46rem;">
+  <div class="form-group">
+    <div class="">
+      <div class="form-group">
+        <input class="form-control" placeholder="Title" style="margin-bottom:4px;" [(ngModel)]="model.title" />
+      </div>
+      <div class="form-group">
+        <textarea type="text" class="input-group" style="border-radius:4px;" placeholder="   What's on your mind?" [(ngModel)]="model.body"></textarea>
+      </div>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" (change)="onImageSelected($event)" />
+        <label class="custom-file-label">📷</label>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="update()">Update my status</button>
+</div>
+<!--<div *ngIf="visible" class="container offset-md-2 col-md-8 update-status">
+  <form action="/Api/TimeLinePost" method="post" enctype="multipart/form-data" #form>
+    <div class="form-group">
+      <div class="">
+        <div class="form-group">
+          <input class="form-control" placeholder="Title" style="margin-bottom:4px;" name="title" />
+        </div>
+        <div class="form-group">
+          <textarea type="text" class="input-group" style="border-radius:4px;" placeholder="What's on your mind?" name="body"></textarea>
+        </div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" name="image" />
+          <label class="custom-file-label">📷</label>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success" (click)="form.submit()">Update my status</button>
+  </form>
+</div>-->

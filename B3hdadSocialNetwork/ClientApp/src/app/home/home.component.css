@@ -1,0 +1,7 @@
+div.update-status {
+  border: 1px solid;
+  border-color: chartreuse;
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

@@ -1,0 +1,38 @@
+<div class="container offset-md-1 col-md-6" style="padding-top:40px;">
+  <h1>Sign in</h1>
+  <!--<form [formGroup]="signInFormValidators" #formsignIn action="/Api/Authentication/signIn"
+        method="post" enctype="multipart/form-data">-->
+  <div [formGroup]="signInFormValidators">
+    <div class="form-group">
+      <input class="form-control" [(ngModel)]="credentials.email" formControlName="email" name="email" placeholder="Email" />
+      <div *ngIf="signInFormValidators.controls['email'].invalid
+              && (signInFormValidators.controls['email'].dirty
+             || signInFormValidators.controls['email'].touched)"
+           class="alert alert-danger">
+        <span *ngIf="signInFormValidators.controls['email'].errors.pattern">
+          Email Address is not valid.
+        </span>
+        <span *ngIf="signInFormValidators.controls['email'].errors.required">
+          Email Address is Required.
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <input  type="password" [(ngModel)]="credentials.password" class="form-control" formControlName="password" name="password" placeholder="password" />
+      <div *ngIf="signInFormValidators.controls['password'].invalid
+              && (signInFormValidators.controls['password'].dirty
+             || signInFormValidators.controls['password'].touched)"
+           class="alert alert-danger">
+        <span *ngIf="signInFormValidators.controls['password'].errors.required">
+          Password is Required.
+        </span>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="signIn($event)" [disabled]="!signInFormValidators.valid">Sign in</button>
+  </div>
+  <hr />
+  <a [routerLink]='["/sign-up"]'>Don't have an account? Sign up</a>
+  <hr/>
+  <a>Sign in with google</a>
+
+</div>

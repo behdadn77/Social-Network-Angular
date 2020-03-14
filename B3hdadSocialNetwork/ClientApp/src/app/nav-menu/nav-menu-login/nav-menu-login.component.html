@@ -1,0 +1,24 @@
+  <ul class="navbar-nav">
+    <ng-template #elseBlock>
+      <li class="nav-item" [routerLinkActive]='["active"]'>
+        <a class="nav-link" [routerLink]='["/sign-in"]'>Sign in</a>
+      </li>
+      <li class="nav-item" [routerLinkActive]='["active"]'>
+        <a class="nav-link" [routerLink]='["/sign-up"]'>Sign up</a>
+      </li>
+    </ng-template>
+
+    <ng-container *ngIf="isSignedIn$ | async as isSignedIn;else elseBlock">
+      <li *ngIf="isSignedIn" class="nav-item" [routerLinkActive]='["active"]'>
+        <a class="nav-link" [routerLink]='["/my-profile"]'>{{userName}}</a>
+      </li>
+      <li *ngIf="isSignedIn" class="nav-item" [routerLinkActive]='["active"]'>
+        <a class="nav-link" [routerLink]='["/my-notifications"]'>Notifications</a>
+      </li>
+      <li *ngIf="isSignedIn" class="nav-item" [routerLinkActive]='["active"]'>
+        <a class="nav-link" href="/api/authentication/Signout">Sign out</a>
+      </li>
+    </ng-container>
+  </ul>
+
+
